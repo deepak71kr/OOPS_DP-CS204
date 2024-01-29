@@ -1,30 +1,54 @@
-public class Lab2Question6 {
-    private void displayValue(int x) {
-        System.out.println("Method with int parameter: " + x);
+public class Q6{
+
+    static void displayNextType(byte value) {
+        short nextValue = value;
+        System.out.println("byte " + value + " is promoted to short: " + nextValue);
     }
 
-    private void displayValue(float x) {
-        System.out.println("Method with float parameter: " + x);
+    static void displayNextType(short value) {
+        int nextValue = value;
+        System.out.println("short " + value + " is promoted to int: " + nextValue);
     }
 
-    private void displayValue(long x) {
-        System.out.println("Method with long parameter: " + x);
+    static void displayNextType(char value) {
+        int nextValue = value;
+        System.out.println("char '" + value + "' is promoted to int: " + nextValue);
     }
 
-    private void displayValue(String str) {
-        System.out.println("Method with String parameter: " + str);
+    static void displayNextType(int value) {
+        long nextValue = value;
+        System.out.println("int " + value + " is promoted to long: " + nextValue);
+    }
+
+    static void displayNextType(long value) {
+        double nextValue = value;
+        System.out.println("long " + value + " is promoted to double: " + nextValue);
+    }
+
+    static void displayNextType(double value) {
+        Object nextValue = value;
+        System.out.println("double " + value + " is promoted to Object: " + nextValue.getClass().getSimpleName());
+    }
+
+    static void displayNextType(Object value) {
+        System.out.println(value.getClass().getSimpleName() + " is an Object, and no further promotion is possible.");
     }
 
     public static void main(String[] args) {
-        TypePromotionDemo demo = new TypePromotionDemo();
+        byte byteValue = 1;
+        short shortValue = 2;
+        char charValue = 'A';
+        int intValue = 3;
+        long longValue = 4L;
+        double doubleValue = 5.0;
+        String stringValue = "Hello";
 
-        demo.displayValue(10);        
-        demo.displayValue(25.5f);     
-        demo.displayValue(35L);       
-        demo.displayValue("Hello");   
-
-
+        displayNextType(byteValue);
+        displayNextType(shortValue);
+        displayNextType(charValue);
+        displayNextType(intValue);
+        displayNextType(longValue);
+        displayNextType(doubleValue);
+        displayNextType(stringValue); 
     }
-
-    
 }
